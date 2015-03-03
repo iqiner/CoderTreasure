@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" />
+  <xs:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.WarehouseManagement" />
+  <xs:element name="PDALoginAndGetWarehouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="loginInfo" nillable="true" type="q1:PDALoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDALoginAndGetWarehouseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="PDALoginAndGetWarehouseResult" nillable="true" type="q2:ReturnLoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLocationDistances">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startLocation" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="locations" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLocationDistancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.WarehouseManagement" minOccurs="0" name="GetLocationDistancesResult" nillable="true" type="q4:ArrayOfDistance_Location_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasActiveInventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="itemNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasActiveInventoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasActiveInventoryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpenReplenishmentTaskList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="itemNumbers" nillable="true" type="q5:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpenReplenishmentTaskListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="GetOpenReplenishmentTaskListResult" nillable="true" type="q6:ArrayOfReplenishmentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateReplenishmentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="items" nillable="true" type="q7:ArrayOfItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateReplenishmentTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="GenerateReplenishmentTaskResult" nillable="true" type="q8:ArrayOfReplenishmentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateReplenishmentTaskWithTaskOwner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="items" nillable="true" type="q9:ArrayOfItem" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateReplenishmentTaskWithTaskOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="GenerateReplenishmentTaskWithTaskOwnerResult" nillable="true" type="q10:ArrayOfReplenishmentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveOutItemAndCreatePutawayTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="itemNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromLocation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveOutItemAndCreatePutawayTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MoveOutItemAndCreatePutawayTaskResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDAWriteSuccessLoginLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" minOccurs="0" name="loginInfo" nillable="true" type="q11:PDALoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PDAWriteSuccessLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

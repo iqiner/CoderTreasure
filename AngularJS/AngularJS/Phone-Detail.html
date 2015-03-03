@@ -1,0 +1,25 @@
+﻿<input type="button" ng-click="changePhone('005')" value="Change Phone">
+<img ng-src="../Resource{{mainImage}}" class="phone">
+
+<h1>{{phone.id}}</h1>
+
+<p>{{phone.description}}</p>
+
+<ul class="phone-thumbs">
+  <li ng-repeat="img in phone.images">
+    <img ng-src="../Resource{{img}}" ng-click="setImage(img)">
+  </li>
+</ul>
+
+<ul class="specs">
+  <li>
+    <span>Availability and Networks</span>
+    <dl>
+      <dt>Availability</dt>
+    </dl>
+  </li>
+  </li>
+    <span>Additional Features</span>
+    <dd>{{phone.additionalFeatures | checkMark}}</dd>
+  </li>
+</ul>

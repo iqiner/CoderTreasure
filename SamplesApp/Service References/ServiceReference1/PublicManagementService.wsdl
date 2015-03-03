@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PublicManagementService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd5" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.WarehouseManagement" />
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Newegg.OZZO.WMS.Service.Domain.Model.PublicManagement" />
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Newegg.WMS.AuthorizationLib.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPublicManagement_PDALoginAndGetWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDALoginAndGetWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_PDALoginAndGetWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDALoginAndGetWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GetLocationDistances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationDistances" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GetLocationDistances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationDistancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_HasActiveInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasActiveInventory" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_HasActiveInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasActiveInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GetOpenReplenishmentTaskList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenReplenishmentTaskList" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GetOpenReplenishmentTaskList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenReplenishmentTaskListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GenerateReplenishmentTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateReplenishmentTask" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GenerateReplenishmentTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateReplenishmentTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GenerateReplenishmentTaskWithTaskOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateReplenishmentTaskWithTaskOwner" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_GenerateReplenishmentTaskWithTaskOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateReplenishmentTaskWithTaskOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_MoveOutItemAndCreatePutawayTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveOutItemAndCreatePutawayTask" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_MoveOutItemAndCreatePutawayTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveOutItemAndCreatePutawayTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_PDAWriteSuccessLoginLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:PDAWriteSuccessLoginLog" />
+  </wsdl:message>
+  <wsdl:message name="IPublicManagement_PDAWriteSuccessLoginLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PDAWriteSuccessLoginLogResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPublicManagement">
+    <wsdl:operation name="PDALoginAndGetWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/PDALoginAndGetWarehouse" message="tns:IPublicManagement_PDALoginAndGetWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/PDALoginAndGetWarehouseResponse" message="tns:IPublicManagement_PDALoginAndGetWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationDistances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/GetLocationDistances" message="tns:IPublicManagement_GetLocationDistances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/GetLocationDistancesResponse" message="tns:IPublicManagement_GetLocationDistances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasActiveInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/HasActiveInventory" message="tns:IPublicManagement_HasActiveInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/HasActiveInventoryResponse" message="tns:IPublicManagement_HasActiveInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenReplenishmentTaskList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/GetOpenReplenishmentTaskList" message="tns:IPublicManagement_GetOpenReplenishmentTaskList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/GetOpenReplenishmentTaskListResponse" message="tns:IPublicManagement_GetOpenReplenishmentTaskList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateReplenishmentTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/GenerateReplenishmentTask" message="tns:IPublicManagement_GenerateReplenishmentTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/GenerateReplenishmentTaskResponse" message="tns:IPublicManagement_GenerateReplenishmentTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateReplenishmentTaskWithTaskOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/GenerateReplenishmentTaskWithTaskOwner" message="tns:IPublicManagement_GenerateReplenishmentTaskWithTaskOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/GenerateReplenishmentTaskWithTaskOwnerResponse" message="tns:IPublicManagement_GenerateReplenishmentTaskWithTaskOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveOutItemAndCreatePutawayTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/MoveOutItemAndCreatePutawayTask" message="tns:IPublicManagement_MoveOutItemAndCreatePutawayTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/MoveOutItemAndCreatePutawayTaskResponse" message="tns:IPublicManagement_MoveOutItemAndCreatePutawayTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PDAWriteSuccessLoginLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublicManagement/PDAWriteSuccessLoginLog" message="tns:IPublicManagement_PDAWriteSuccessLoginLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublicManagement/PDAWriteSuccessLoginLogResponse" message="tns:IPublicManagement_PDAWriteSuccessLoginLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPublicManagement" type="tns:IPublicManagement">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PDALoginAndGetWarehouse">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/PDALoginAndGetWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationDistances">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/GetLocationDistances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasActiveInventory">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/HasActiveInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenReplenishmentTaskList">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/GetOpenReplenishmentTaskList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateReplenishmentTask">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/GenerateReplenishmentTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateReplenishmentTaskWithTaskOwner">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/GenerateReplenishmentTaskWithTaskOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveOutItemAndCreatePutawayTask">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/MoveOutItemAndCreatePutawayTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDAWriteSuccessLoginLog">
+      <soap:operation soapAction="http://tempuri.org/IPublicManagement/PDAWriteSuccessLoginLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicManagementService">
+    <wsdl:port name="BasicHttpBinding_IPublicManagement" binding="tns:BasicHttpBinding_IPublicManagement">
+      <soap:address location="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

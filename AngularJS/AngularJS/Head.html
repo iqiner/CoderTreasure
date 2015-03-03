@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-md-4 ">
+        <div class="input-group">
+            <!--Sidebar content-->
+            <span class="input-group-addon">Search:</span>
+            <input ng-model="query" class="form-control" />
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="input-group">
+            <span class="input-group-addon">Sort by:</span>
+            <select ng-model="orderProp" ng-options="item for item in orderProps" class="form-control">
+                <option value="">(blank)</option>
+            </select>
+        </div>
+    </div>
+</div>
+<hr/>

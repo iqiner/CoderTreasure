@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c4aab367-54a6-41a2-b021-4645931daaec" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PublicManagementService.xsd" MetadataType="Schema" ID="bab3d694-e8a6-41d6-b3bc-5d301db5367e" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd2" />
+    <MetadataFile FileName="PublicManagementService1.xsd" MetadataType="Schema" ID="e3a78f89-a731-4d2a-ac38-4f5c87d3d46d" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd1" />
+    <MetadataFile FileName="PublicManagementService2.xsd" MetadataType="Schema" ID="b6f99e96-9984-4c1c-b655-f05aadd472b5" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd3" />
+    <MetadataFile FileName="PublicManagementService.wsdl" MetadataType="Wsdl" ID="54cbd49d-9373-48ea-8b6d-34791612630f" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?wsdl" />
+    <MetadataFile FileName="PublicManagementService3.xsd" MetadataType="Schema" ID="1136be0b-744f-4d47-9121-60aa4ce00aab" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd4" />
+    <MetadataFile FileName="PublicManagementService4.xsd" MetadataType="Schema" ID="5e924131-75a7-415c-9257-3b9b725caa64" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd0" />
+    <MetadataFile FileName="PublicManagementService5.xsd" MetadataType="Schema" ID="cb009156-63a5-430f-ac2a-e9d016c9a030" SourceId="1" SourceUrl="http://10.16.76.251:2609/Newegg/OZZO/WMS/Service/PublicService/PublicManagementService?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

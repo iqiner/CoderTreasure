@@ -1,0 +1,19 @@
+﻿<div>
+    <div class="col-md-8">
+        <!--Body content-->
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+                <div style="float: left">{{query}}
+                    <a href="#/Phone/{{phone.id}}">
+                        <img class="img-thumbnail" ng-src="../Resource/Image/{{phone.img}}" />
+                    </a>
+                </div>
+                <div style="float: left">
+                    <a href="#/Phone/{{phone.id}}">{{phone.name}}</a>
+                    <p>{{phone.snippet}}</p>
+                </div>
+                <div style="clear: both">
+            </li>
+        </ul>
+    </div>
+</div>

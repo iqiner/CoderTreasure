@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CatalogConfig>
+  <Warehouse Number="07">
+    <Catalog CatalogName="Newegg Fleet Conveyors" ShipviaCodes="140,141" LocationTypes="03" TabIndex="1" TabName="Conveyors"/>
+    <Catalog CatalogName="Newegg Fleet Manual" ShipviaCodes="140,141" LocationTypes="01,02" TabIndex="2" TabName="Manual"/>
+    <Catalog CatalogName="Newegg Fleet Single 1F" ShipviaCodes="140,141" LocationTypes="04" TabIndex="3" TabName="Manual" SpecificCriteria="A.ItemCount=1"/>
+    <Catalog CatalogName="Newegg Fleet Multiple 1F" ShipviaCodes="140,141" LocationTypes="04" TabIndex="4" TabName="Manual" SpecificCriteria="A.ItemCount&gt;1"/>
+    <Catalog CatalogName="Newegg Fleet Single 2F" ShipviaCodes="140,141" LocationTypes="05" TabIndex="5" TabName="Manual" SpecificCriteria="A.ItemCount=1"/>
+    <Catalog CatalogName="Newegg Fleet Multiple 2F" ShipviaCodes="140,141" LocationTypes="05" TabIndex="6" TabName="Manual" SpecificCriteria="A.ItemCount&gt;1"/>
+    <Catalog CatalogName="Newegg Fleet Single GroundFloor" ShipviaCodes="140,141" LocationTypes="01" TabIndex="8" TabName="Manual" SpecificCriteria="A.ItemCount=1"/>
+    <Catalog CatalogName="Newegg Fleet Multiple GroundFloor" ShipviaCodes="140,141" LocationTypes="06" TabIndex="7" TabName="Manual" SpecificCriteria="A.ItemCount&gt;1"/>
+  </Warehouse>
+  <Warehouse Number="08">
+    <Catalog CatalogName="Newegg Fleet" ShipviaCodes="140, 141"/>
+  </Warehouse>
+  <Warehouse Number="09">
+    <!--
+    <Catalog CatalogName="Economical Trucking - Small" ShipviaCodes="070" LocationTypes="02" TabIndex="2"/>
+    <Catalog CatalogName="Trucking to Canada - Small" ShipviaCodes="108" LocationTypes="02" TabIndex="2"/>
+    <Catalog CatalogName="AIT LTL - Small" ShipviaCodes="095,096" LocationTypes="02" TabIndex="2"/>
+    <Catalog CatalogName="Purolator Conveyors" ShipviaCodes="028,029" LocationTypes="02" TabIndex="2"/>
+    <Catalog CatalogName="Rush Order &amp; One Day(Single)" LocationTypes="02" TabIndex="2" SpecificCriteria="A.ItemCount=1 AND (A.RushOrderFee > 0 AND A.ShipVia NOT IN('017','002','040','055') OR A.ShipVia IN('002','040','055'))"/>
+    <Catalog CatalogName="Rush Order &amp; One Day(Multiple)" LocationTypes="02" TabIndex="2" SpecificCriteria="A.ItemCount>1 AND (A.RushOrderFee > 0 AND A.ShipVia NOT IN('017','002','040','055') OR A.ShipVia IN('002','040','055'))"/>
+    <Catalog CatalogName="Canada Single" ShipviaCodes="053,054" LocationTypes="02" TabIndex="2" SpecificCriteria="A.ItemCount=1"/>
+    <Catalog CatalogName="Canada Large Order" ShipviaCodes="053,054" LocationTypes="02" TabIndex="2" SpecificCriteria="A.ItemCount>1"/>
+    <Catalog CatalogName="B2B Will Call - Small" ShipviaCodes="001" LocationTypes="02" TabIndex="2" SpecificCriteria="M.SpecialComment LIKE '%B2B%'" OtherJoinTableAboutQueryCriteria="INNER JOIN Dropship.dbo.DropshipMaster M ON M.DropshipID=A.DropshipID"/>
+    <Catalog CatalogName="Large Order - Small" LocationTypes="02" TabIndex="2" SpecificCriteria="(A.ItemCount>10 and A.ItemQty>30) OR A.ItemQty>50"/>
+    <Catalog CatalogName="Order without Location" LocationTypes="02" TabIndex="2" SpecificCriteria="ZoneID=0"/>
+    <Catalog CatalogName="All Orders(Single)" LocationTypes="02" TabIndex="2" SpecificCriteria="ItemCount=1"/>
+    <Catalog CatalogName="All Orders(Multiple)" LocationTypes="02" TabIndex="2" SpecificCriteria="ItemCount> 1"/>
+    <Catalog CatalogName="B2B Will Call - Small" LocationTypes="02" TabIndex="2" SpecificCriteria="M.SpecialComment LIKE '%B2B%'" OtherJoinTableAboutQueryCriteria="INNER JOIN Dropship.dbo.DropshipMaster M ON M.DropshipID=A.DropshipID"/>
+    -->
+    <Catalog CatalogName="Single Order &amp; Item is envelope item" LocationTypes="02" TabIndex="2" SpecificCriteria="A.ItemCount=1 AND P.BoxNumber=1" OtherJoinTableAboutQueryCriteria="INNER JOIN Dropship.dbo.NeedPackingItem P ON P.ItemNumber=A.Item"/>
+  </Warehouse>
+  <Warehouse Number="30">
+    <Catalog CatalogName="Express Order (UPS)" ShipviaCodes="087" Priority="85"/>
+  </Warehouse>
+  <Warehouse Number="31">
+    <Catalog CatalogName="Purolator - 11" ShipviaCodes="089,097" SpecificCriteria="A.ItemCount=1 AND A.Item like '11%'" Priority="12"/>
+    <Catalog CatalogName="Purolator - 34" ShipviaCodes="089,097" SpecificCriteria="A.ItemCount=1 AND A.Item like '34%'" Priority="12"/>
+    <Catalog CatalogName="Purolator - 89" ShipviaCodes="089,097" SpecificCriteria="A.ItemCount=1 AND A.Item like '89%'" Priority="12"/>
+    <Catalog CatalogName="UPS - 11" ShipviaCodes="090,087" SpecificCriteria="A.ItemCount=1 AND A.Item like '11%'" Priority="12"/>
+    <Catalog CatalogName="UPS - 34" ShipviaCodes="090,087" SpecificCriteria="A.ItemCount=1 AND A.Item like '34%'" Priority="12"/>
+    <Catalog CatalogName="UPS - 89" ShipviaCodes="090,087" SpecificCriteria="A.ItemCount=1 AND A.Item like '89%'" Priority="12"/>
+  </Warehouse>
+</CatalogConfig>
