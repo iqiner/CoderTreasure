@@ -1,0 +1,30 @@
+//------------------------------------------------------------------------------
+// <copyright file="PackCommand.cs" company="Company">
+//     Copyright (c) Company.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
+
+using System;
+using System.ComponentModel.Design;
+using System.Globalization;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+using NugetPackTool.Utils;
+
+namespace NugetPackTool.Commands
+{
+    /// <summary>
+    /// Command handler
+    /// </summary>
+    internal sealed class PublishAphaCommand : CommandBase<PublishAphaCommand>
+    {
+        protected override Guid CommandSet { get; } = new Guid("78E6F273-D220-4D8B-B3E3-C724DE7E6BEF");
+
+        protected override void MenuItemCallback(object sender, EventArgs e)
+        {
+            var project = this.DTE2.SelectedProject();
+            var outputMessage = project.PublishNugetPackage(PackageKind.Alpha);
+            WriteToOutputWindow(outputMessage);
+        }
+    }
+}
