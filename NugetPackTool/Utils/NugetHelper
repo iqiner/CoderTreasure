@@ -1,0 +1,146 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+using NugetPackTool.Commands;
+using NugetPackTool.Nuget;
+
+namespace NugetPackTool.Utils
+{
+    public static class NugetHelper
+    {
+        private static string GetPackageInstallDirectory()
+        {
+            string codebase = typeof(NugetPackToolPackage).Assembly.CodeBase;
+            var uri = new Uri(codebase, UriKind.Absolute);
+            var directory = Path.GetDirectoryName(uri.LocalPath);
+            if (string.IsNullOrWhiteSpace(directory))
+            {
+                return string.Empty;
+            }
+            return directory;
+        }
+
+        private static string GetPackageInstallRootDirectory()
+        {
+            return Directory.GetParent(GetPackageInstallDirectory()).FullName;
+        }
+
+        private static string GetNugetSourceConfigFullFilePath()
+        {
+            string configPath = Path.Combine(GetPackageInstallRootDirectory(), "NugetSourceConfig.json");
+
+            if (!File.Exists(configPath))
+            {
+                var defaultConfigPath = Path.Combine(GetPackageInstallDirectory(), "Nuget", "NugetSourceConfig.json");
+                File.Copy(defaultConfigPath, configPath);
+            }
+
+            return configPath;
+        }
+
+        private static string GetNugetExeFullFilePath()
+        {
+            return Path.Combine(GetPackageInstallDirectory(), "Nuget", "nuget.exe");
+        }
+
+        private static string ExecuteNugetCommand(string arg)
+        {
+            string outputMessage;
+            using (var process = StartNugetProcess(arg))
+            {
+                var standardOutput = new StringBuilder();
+                standardOutput.Append(process.StandardOutput.ReadToEnd());
+                standardOutput.Append(process.StandardError.ReadToEnd());
+                while (!process.HasExited)
+                {
+                    standardOutput.Append(process.StandardOutput.ReadToEnd());
+                    standardOutput.Append(process.StandardError.ReadToEnd());
+                }
+                outputMessage = standardOutput.ToString();
+            }
+
+            return outputMessage;
+        }
+
+        private static Process StartNugetProcess(string commands)
+        {
+            var startInfo = new ProcessStartInfo(GetNugetExeFullFilePath(), commands)
+            {
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
+
+            return Process.Start(startInfo);
+        }
+
+        public static List<NugetSourceInfo> GetNugetSourceConfig()
+        {
+            string configPath = GetNugetSourceConfigFullFilePath();
+            if (!File.Exists(configPath))
+            {
+                return new List<NugetSourceInfo>();
+            }
+            string configString = File.ReadAllText(configPath);
+            return JsonConvert.DeserializeObject<List<NugetSourceInfo>>(configString);
+        }
+
+        public static void SaveNugetSourceConfig(List<NugetSourceInfo> config)
+        {
+            string configString = JsonConvert.SerializeObject(config, Formatting.Indented);
+            string configPath = GetNugetSourceConfigFullFilePath();
+            using (var writer = File.CreateText(configPath))
+            {
+                writer.Write(configString);
+            }
+        }
+        
+        public static string Pack(string projectPath, string outputPath)
+        {
+            string arg = $"pack \"{projectPath}\" -Build -Prop Configuration=Release -IncludeReferencedProjects -o \"{outputPath}\"";
+            string outputMessage = ExecuteNugetCommand(arg);
+            return outputMessage;
+        }
+
+        public static string Publish(string packagePath, PackageKind kind)
+        {
+            var config = GetNugetSourceConfig().FirstOrDefault(it => it.PackageKind == kind);
+            if (string.IsNullOrWhiteSpace(config?.NugetSource))
+            {
+                return $"Publish to {kind} version failed, Please config the {kind} Nuget Source at first.";
+            }
+
+            string nugetServer = config.NugetSource;
+            string password = config.Password;
+            string arg = $"push \"{packagePath}\" -s \"{nugetServer}\" \"{password}\"";
+            return ExecuteNugetCommand(arg);
+        }
+
+        public static string ReadNuspecTemplate()
+        {
+            var resourceName = "NugetPackTool.Resources.Nuspec.template.nuspec";
+
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                {
+                    return string.Empty;
+                }
+
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+    }
+}
