@@ -1,0 +1,12 @@
+[
+  {
+    "PackageKind": 0,
+    "NugetSource": "http://10.16.76.251:9999/AlphaNugetServer/",
+    "Password": "Newegg.Shipping.NugetServer"
+  },
+  {
+    "PackageKind": 1,
+    "NugetSource": "http://10.16.76.251:9999/NugetServer/",
+    "Password": "Newegg.Shipping.NugetServer"
+  }
+]
